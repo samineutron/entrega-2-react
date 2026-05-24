@@ -1,3 +1,5 @@
+//Le pedi a la IA que me generara un objeto para simular una peticion a una API con contenido real
+
 const catalogo = {
     productos: [
         {

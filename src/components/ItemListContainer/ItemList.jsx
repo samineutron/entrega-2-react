@@ -1,6 +1,7 @@
 import "./ItemList.css";
 
 function ItemList({keygen, titulo, marca, categoria, precio, imagen}) {
+    /*Puse una imagen estatica para todos las cards por mientras */
     return (
         <>
         <div className="card bg-base-100 w-70 shadow-sm py-6">
