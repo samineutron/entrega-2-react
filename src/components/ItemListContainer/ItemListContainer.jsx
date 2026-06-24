@@ -1,21 +1,28 @@
 import ItemList from "./ItemList";
 import imagen from "../../assets/default.webp";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function ItemListContainer({catalogo}) {
+function ItemListContainer({catalogo = [], isLoading}) {
+    const [filtrados, setFiltrados] = useState([]);
 
-    const category = useParams(catalogo.category)
-    
+    const {category} = useParams();
+
+    useEffect(()=>{
+        if (category){
+            const productosFiltrados = catalogo.filter((item) => item.category === category);
+            setFiltrados(productosFiltrados);
+
+        } else {
+            setFiltrados(catalogo);
+        }
+    },[category, catalogo])
+
     return (
         <>
-            <section className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-items-center gap-4 pt-6 px-5">
+            <section className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] w-full justify-items-center gap-4 pt-6 px-5">
                 {/* Lo de arriba en la clase me ayude de la IA para hacerlo responsivo dependiendo del espacio disponible */}
-                {catalogo.map(c => {
-                    return (
-                        <ItemList key={c.id} titulo={c.title} categoria={c.category} precio={c.price} descripcion={c.description} imagen={c.image} />
-                    )
-                })
-                }
+                {isLoading === true ? (<p>Cargando...</p>) : <ItemList products={filtrados} />}   
             </section>
         </>
     )

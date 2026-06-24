@@ -1,0 +1,6 @@
+aside {
+    padding: 10px 15px;
+    min-width: 220px;
+    border-right: 3px solid rgba(128, 128, 128, 0.075);
+    position: sticky;
+}
