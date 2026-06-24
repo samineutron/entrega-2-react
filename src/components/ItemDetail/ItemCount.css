@@ -1,0 +1,14 @@
+.btn-neutral {
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+}
+
+.count {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(133, 133, 133, 0.266);
+}

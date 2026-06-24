@@ -4,6 +4,7 @@ import Navbar from "./components/NavBar/Navbar.jsx";
 import './App.css';
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx";
 import Sidebar from "./components/Aside/Sidebar.jsx";
+import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer.jsx";
 
 function App() {
     const url = "https://fakestoreapi.com/products";
@@ -42,12 +43,12 @@ function App() {
     return (
     <>
         <Navbar />
-        <main className='flex flex-row'>
+        <main className='flex flex-row min-h-[88svh]'>
             <Sidebar catalogo={data} />
             <Routes>
                 <Route path="/" element={<ItemListContainer catalogo={data} isLoading={loading}/>} />
                 <Route path="/categories/:category" element={<ItemListContainer catalogo={data} isLoading={loading}/>} />
-                <Route path="/items" element={<h3>pene</h3>} />
+                <Route path="/items/:itemId" element={<ItemDetailContainer catalogo={data} />} />
                 <Route path="*" element={<h2>404 Not Found</h2>} />
             </Routes>
 
